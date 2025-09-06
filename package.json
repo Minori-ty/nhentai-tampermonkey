@@ -17,7 +17,6 @@
     "vite-plugin-monkey": "^7.1.1"
   },
   "dependencies": {
-    "@preact/signals": "^2.3.1",
     "@tailwindcss/vite": "^4.1.12",
     "enum-plus": "^2.4.3",
     "lodash-es": "^4.17.21",

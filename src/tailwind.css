@@ -31,7 +31,7 @@
     .border-nhentai {
         border-width: 3px;
         border-top-color: var(--nhentai);
-        border-style: var(--tw-border-style);
+        border-style: solid;
     }
 
     .image-placeholder {
