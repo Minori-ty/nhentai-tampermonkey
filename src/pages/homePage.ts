@@ -1,5 +1,5 @@
-import { createInfiniteScroll } from '@/utils/createInfiniteScroll'
+import { createInfiniteScroll } from '@/utils/createInfiniteScroll';
 
 export function homePage() {
-    createInfiniteScroll('.container.index-container:not(.index-popular)')
+    createInfiniteScroll('.container.index-container:not(.index-popular)');
 }
