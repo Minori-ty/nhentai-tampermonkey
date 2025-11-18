@@ -8,11 +8,11 @@
 @layer utilities {
     /* 针对特定按钮的样式扩展 */
     #scroll-mode.btn.btn-primary {
-        @apply !ml-0 !border-[#4caf50] !bg-[#4caf50];
+        @apply ml-0! border-[#4caf50]! bg-[#4caf50]!;
     }
 
     #scroll-mode.btn.btn-primary:hover {
-        @apply !border-[#388e3c] !bg-[#388e3c];
+        @apply border-[#388e3c]! bg-[#388e3c]!;
     }
 
     #scroll-mode.btn.btn-primary .fa {
@@ -60,20 +60,17 @@
 
     .gallery,
     .thumb-container {
-        @apply relative z-1 transition-transform duration-300 ease-in-out;
+        @apply lg:relative lg:z-1 lg:transition-transform lg:duration-300 lg:ease-in-out;
     }
 
+    /* 悬停效果（仅大屏生效） */
     .gallery:hover,
     .thumb-container:hover {
-        @apply z-50 scale-130 transform;
+        @apply lg:z-50 lg:scale-130;
     }
 
+    /* 子元素 caption 样式（仅大屏生效） */
     .caption {
-        @apply bg-black/70 p-2 transition-all duration-300 ease-in-out;
-    }
-
-    .gallery:hover .caption,
-    .thumb-container:hover .caption {
-        @apply bg-black/70;
+        @apply lg:bg-black/70 lg:p-2 lg:transition-all lg:duration-300 lg:ease-in-out;
     }
 }
