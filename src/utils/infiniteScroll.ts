@@ -21,13 +21,12 @@ export class InfiniteScroll {
     private loadNextPage: (page: number) => Promise<unknown>;
     private isLoading: boolean = false;
     private scrollListener: () => void;
-    private throttleTime: number;
+    private throttleTime: number = 200;
 
     constructor(options: InfiniteScrollOptions) {
         this.currentPage = options.currentPage || 1;
         this.totalPages = options.totalPages;
         this.loadNextPage = options.loadNextPage;
-        this.throttleTime = 200;
 
         // 使用lodash的throttle包装滚动事件处理函数，限制触发频率
         this.scrollListener = throttle(
@@ -35,6 +34,10 @@ export class InfiniteScroll {
             this.throttleTime,
         );
         window.addEventListener('scroll', this.scrollListener);
+
+        window.addEventListener('beforeunload', () => {
+            window.removeEventListener('scroll', this.scrollListener);
+        });
     }
 
     /**
@@ -85,7 +88,7 @@ export class InfiniteScroll {
      */
     private async retryLoad(page: number): Promise<void> {
         // 延迟重试，避免过于频繁请求
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 200));
 
         try {
             await this.loadNextPage(page);

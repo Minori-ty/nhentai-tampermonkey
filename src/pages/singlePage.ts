@@ -128,7 +128,7 @@ function loadImage(
     return new Promise((resolve, reject) => {
         const img = new Image();
         img.src = imageUrl;
-        img.className = 'max-h-[90vh] w-auto block mx-auto object-contain';
+        img.className = 'nhentai-image';
         const url = new URL(imageUrl);
         const fileName = url.pathname.split('/').at(-1);
         const page = fileName?.split('.')[0];

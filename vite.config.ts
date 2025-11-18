@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import monkey, { cdn } from 'vite-plugin-monkey';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'node:path';
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 // https://vitejs.dev/config/
 export default defineConfig({
