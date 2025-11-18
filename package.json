@@ -1,11 +1,12 @@
 {
-    "name": "nhentai-monkey",
+    "name": "nhentai-scroll",
     "private": true,
     "version": "0.0.3",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
+        "build:mobile": "tsc && vite build --mode mobile",
         "preview": "vite preview"
     },
     "devDependencies": {

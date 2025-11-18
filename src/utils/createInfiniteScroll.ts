@@ -9,6 +9,33 @@ export function createInfiniteScroll(selector: string) {
         total: 0,
     });
 
+    window.addEventListener(
+        'error',
+        (e) => {
+            if (e.target instanceof HTMLImageElement) {
+                const img = e.target;
+                let retry = Number(img.getAttribute('retry'));
+                const RETRY = 4;
+                if (retry >= RETRY) {
+                    return;
+                }
+                retry += 1;
+                img.setAttribute('retry', String(retry));
+                const url = new URL(img.src);
+                const host = url.host;
+                const [subdomain, ...reset] = host.split('.');
+                const [prefix, num] = subdomain;
+                setTimeout(() => {
+                    img.src = img.src.replace(
+                        host,
+                        `${prefix}${(Number(num) % 5) + 1}.${reset.join('.')}`,
+                    );
+                }, 100);
+            }
+        },
+        true,
+    );
+
     const indicator = createIndicator();
     effect(() => {
         indicator.textContent = `${store.page} / ${store.total}`;
