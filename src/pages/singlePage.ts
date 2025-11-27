@@ -41,7 +41,7 @@ export async function singlePage() {
 
         imgWrapper.innerHTML = `
         <div class="image-placeholder"></div>
-        <span class="absolute top-[20px] right-[10px] bg-black/70 text-white px-[10px] py-[5px] rounded-[4px] text-[14px]">${i} / ${total}</span>
+        <span class="image-base image-indicator">${i} / ${total}</span>
         `;
         container.appendChild(imgWrapper);
     }

@@ -1,8 +1,8 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
-:root {
-    --nhentai: #ed2553;
+@theme {
+    --color-nhentai: #ed2553;
 }
 
 @layer utilities {
@@ -21,21 +21,20 @@
 }
 
 @layer components {
-    .page-indicator {
-        @apply fixed top-32 right-5 z-50 rounded-sm bg-gray-600 px-5 py-1;
-    }
-
-    .border-nhentai {
-        @apply border-t-4 border-solid;
-        border-top-color: var(--nhentai);
-    }
-
     .image-placeholder {
         @apply mx-auto flex items-center justify-center bg-[#2a2a2a];
     }
 
     .nhentai-image {
         @apply mx-auto block h-[90vh] w-auto object-contain;
+    }
+
+    .image-base {
+        @apply absolute rounded-[4px] bg-black/70 px-[10px] py-[5px] text-[14px] text-white;
+    }
+
+    .page-base {
+        @apply fixed z-50 rounded-sm bg-gray-600 px-5 py-1;
     }
 
     /* 当屏幕宽 > 高（横屏状态） */
@@ -46,6 +45,12 @@
         .nhentai-image {
             @apply h-[90vh] w-auto;
         }
+        .page-indicator {
+            @apply top-32 right-5;
+        }
+        .image-indicator {
+            @apply text-[14px] text-white;
+        }
     }
 
     /* 当屏幕宽 < 高（竖屏状态） */
@@ -53,24 +58,32 @@
         .image-placeholder {
             @apply h-[calc(90vw*91/64)] w-[90vw];
         }
+
         .nhentai-image {
             @apply h-auto w-[90vw];
+        }
+
+        .page-indicator {
+            @apply top-10 right-0;
+        }
+
+        .image-indicator {
+            @apply top-[5px] right-[5px];
         }
     }
 
     .gallery,
     .thumb-container {
         @apply lg:relative lg:z-1 lg:transition-transform lg:duration-300 lg:ease-in-out;
-    }
 
-    /* 悬停效果（仅大屏生效） */
-    .gallery:hover,
-    .thumb-container:hover {
-        @apply lg:z-50 lg:scale-130;
-    }
+        /* 嵌套 hover 伪类（对应原 .gallery:hover 和 .thumb-container:hover） */
+        &:hover {
+            @apply lg:z-50 lg:scale-130;
+        }
 
-    /* 子元素 caption 样式（仅大屏生效） */
-    .caption {
-        @apply lg:bg-black/70 lg:p-2 lg:transition-all lg:duration-300 lg:ease-in-out;
+        /* 嵌套子元素 .caption（对应原独立的 .caption 样式，明确是父元素的子元素） */
+        .caption {
+            @apply lg:bg-black/70 lg:p-2 lg:transition-all lg:duration-300 lg:ease-in-out;
+        }
     }
 }

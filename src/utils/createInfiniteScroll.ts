@@ -74,9 +74,10 @@ export function createInfiniteScroll(selector: string) {
     const content = document.getElementById('content');
     const loading = document.createElement('div');
     loading.id = 'loading';
+    // <div class="size-10 border-nhentai border-gray-200 rounded-full animate-spin"></div>
     loading.innerHTML = `
         <div class="flex justify-center items-center py-5">
-            <div class="size-10 border-nhentai border-gray-200 rounded-full animate-spin"></div>
+            <div class="size-8 border-gray-200 border-solid border-2 border-t-nhentai rounded-full animate-spin"></div>
             <span class="text-white ml-5 text-xl">加载中...</span>
         </div>
     `;
