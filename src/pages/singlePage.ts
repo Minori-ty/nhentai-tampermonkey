@@ -49,9 +49,13 @@ export async function singlePage() {
     const { images, media_id } = await getNHentaiInfo(galleryId);
     const imageUrls: string[] = [];
     const requestPool: string[] = [];
+    const src = document
+        .querySelector('#image-container')
+        ?.querySelector<HTMLImageElement>('a>img')?.src;
+    const subDomainIndex = src?.slice(9, 10);
     for (let i = currentPage; i <= total; i++) {
         const fileName = `${i}${Ext.raw(images.pages[i - 1].t).ext}`;
-        const url = `https://i1.nhentai.net/galleries/${media_id}/${fileName}`;
+        const url = `https://i${subDomainIndex || 1}.nhentai.net/galleries/${media_id}/${fileName}`;
         imageUrls.push(url);
         requestPool.push(url);
     }

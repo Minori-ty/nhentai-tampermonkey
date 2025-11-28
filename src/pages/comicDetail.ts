@@ -1,6 +1,6 @@
 export function comicDetailPage() {
-    const favoriteBtn = document.querySelector<HTMLDivElement>('#favorite');
-    if (!favoriteBtn) return;
+    const downloadBtn = document.querySelector<HTMLDivElement>('#download');
+    if (!downloadBtn) return;
 
     const singleImageBtn = document.createElement('button');
     singleImageBtn.id = 'scroll-mode';
@@ -17,8 +17,8 @@ export function comicDetailPage() {
         window.location.href = `${currentUrl.origin}/${newPath}?single=true`;
     });
 
-    favoriteBtn.parentNode?.insertBefore(
+    downloadBtn.parentNode?.insertBefore(
         singleImageBtn,
-        favoriteBtn.nextSibling,
+        downloadBtn.nextSibling,
     );
 }

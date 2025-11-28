@@ -37,7 +37,7 @@
         @apply fixed z-50 rounded-sm bg-gray-600 px-5 py-1;
     }
 
-    /* 当屏幕宽 > 高（横屏状态） */
+    /* 电脑 */
     @media (min-aspect-ratio: 1/1) {
         .image-placeholder {
             @apply h-[90vh] w-[calc(90vh*64/91)];
@@ -49,11 +49,11 @@
             @apply top-32 right-5;
         }
         .image-indicator {
-            @apply text-[14px] text-white;
+            @apply top-[20px] right-[10px];
         }
     }
 
-    /* 当屏幕宽 < 高（竖屏状态） */
+    /* 手机 */
     @media (max-aspect-ratio: 1/1) {
         .image-placeholder {
             @apply h-[calc(90vw*91/64)] w-[90vw];
