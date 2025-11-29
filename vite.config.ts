@@ -17,7 +17,7 @@ export default defineConfig(async ({ mode }) => {
             const base64Str = buffer.toString('base64');
             // 3. 拼接正确的 data URI（ico 对应的 MIME 是 image/x-icon）
             icon = `data:image/x-icon;base64,${base64Str}`;
-            console.log('本地图标转换成功');
+            console.log('🎉 本地图标转换成功\n');
         } catch (err) {
             console.error('本地图标转换失败，使用默认图标:', err);
             // 失败时保持默认图标
