@@ -3,16 +3,19 @@
 
 @theme {
     --color-nhentai: #ed2553;
+    --color-scroll-primary: #4caf50;
+    --color-scroll-primary-hover: #388e3c;
 }
 
 @layer utilities {
-    /* 针对特定按钮的样式扩展 */
+    /* 滚动按钮强制覆盖样式：选择器高权重 + utilities 层高优先级 + !important */
     #scroll-mode.btn.btn-primary {
-        @apply ml-0! border-[#4caf50]! bg-[#4caf50]!;
+        @apply border-scroll-primary! bg-scroll-primary! ml-0;
+        /* 注释说明：! 用于强制覆盖原有按钮的 border/bg 样式 */
     }
 
     #scroll-mode.btn.btn-primary:hover {
-        @apply border-[#388e3c]! bg-[#388e3c]!;
+        @apply border-scroll-primary-hover! bg-scroll-primary-hover!;
     }
 
     #scroll-mode.btn.btn-primary .fa {
@@ -30,7 +33,7 @@
     }
 
     .image-base {
-        @apply absolute rounded-[4px] bg-black/70 px-[10px] py-[5px] text-[14px] text-white;
+        @apply absolute rounded-sm bg-black/70 px-2.5 py-[5px] text-[14px] text-white;
     }
 
     .page-base {
@@ -49,7 +52,7 @@
             @apply top-32 right-5;
         }
         .image-indicator {
-            @apply top-[20px] right-[10px];
+            @apply top-5 right-2.5;
         }
     }
 
