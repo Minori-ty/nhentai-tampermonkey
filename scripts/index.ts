@@ -3,9 +3,9 @@ import { stdin as input, stdout as output } from "node:process";
 import { execSync } from "node:child_process";
 import { Enum } from 'enum-plus'
 
-async function select(options, message) {
+async function select<T extends {label:string,value:string}[]>(options:T, message:string) {
   // options: [{ label: string, value: any }]
-  return new Promise((resolve) => {
+  return new Promise<T[number]["value"]>((resolve) => {
     const rl = readline.createInterface({ input, output });
 
     readline.emitKeypressEvents(input, rl);

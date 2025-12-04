@@ -67,7 +67,7 @@
         }
 
         .page-indicator {
-            @apply top-10 right-0;
+            @apply top-15 right-0;
         }
 
         .image-indicator {

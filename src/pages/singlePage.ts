@@ -40,8 +40,8 @@ export async function singlePage() {
         imgWrapper.id = `image-wrapper-${i}`;
 
         imgWrapper.innerHTML = `
-        <div class="image-placeholder"></div>
-        <span class="image-base image-indicator">${i} / ${total}</span>
+            <div class="image-placeholder"></div>
+            <span class="image-base image-indicator">${i} / ${total}</span>
         `;
         container.appendChild(imgWrapper);
     }

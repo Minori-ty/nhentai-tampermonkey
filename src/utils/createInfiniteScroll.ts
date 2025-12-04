@@ -84,7 +84,7 @@ export function createInfiniteScroll(selector: string) {
     content?.appendChild(loading);
 
     effect(() => {
-        if (store.page === store.total) {
+        if ((store.page === store.total&& store.total!==0)||store.total===1) {
             loading.innerHTML = `
                 <div class="justify-center items-center pt-5 pb-10 flex">
                     <span class="text-white text-xl"> - 已经没有了 - </span>

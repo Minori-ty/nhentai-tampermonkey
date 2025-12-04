@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import monkey, { GreasemonkeyUserScript } from 'vite-plugin-monkey';
+import monkey  from 'vite-plugin-monkey';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve, join } from 'node:path';
 import { readFile } from 'node:fs/promises';

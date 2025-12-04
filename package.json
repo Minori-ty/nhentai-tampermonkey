@@ -1,11 +1,11 @@
 {
     "name": "nhentai-scroll",
     "private": true,
-    "version": "0.0.3",
+    "version": "0.0.4",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "node scripts/build.mjs",
+        "build": "node ./scripts/build.mjs",
         "build:desktop": "tsc && vite build",
         "build:mobile": "tsc && vite build --mode mobile",
         "preview": "vite preview"
